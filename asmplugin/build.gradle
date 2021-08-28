@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'maven'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'org.ow2.asm:asm:8.0.1'
+    implementation 'org.ow2.asm:asm-commons:8.0.1'
+    implementation 'com.android.tools.build:gradle:4.2.2'
+
+}
+group = 'com.tyty.asmplugin'
+version = "1.0.1"
+
+//打包上传到本地
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs '../repo/'
+        }
+    }
+}

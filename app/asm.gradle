@@ -1,0 +1,34 @@
+
+apply plugin: 'cusplugin'
+customB.extensionArgs = "佩奇跟乔治一起在公园滑滑梯"
+
+
+apply plugin: CustomePluginC
+customc.desc = "是大灰狼么？"
+
+
+class CustomExtensionC{
+    String desc = ""
+}
+
+class CustomePluginC implements Plugin<Project>{
+    @Override
+    void apply(Project project) {
+        def extensions = project.extensions.create('customc',CustomExtensionC)
+        project.task('customc'){
+            doLast {
+                println("接手外部的重点参数：${extensions.desc}")
+            }
+        }
+
+    }
+}
+
+defaultTasks("some-tasks")
+
+task projectTest{
+    println("project.name:${project.name}")
+    println("project.allprojects:${project.allprojects}")
+    println("project.defaultTasks:${project.defaultTasks}")
+}
+

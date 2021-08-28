@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">asminjecttest</string>
+    <string name="button_a">buttonA</string>
+    <string name="button_b">buttonB</string>
+</resources>
